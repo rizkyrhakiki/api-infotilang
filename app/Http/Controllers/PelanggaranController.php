@@ -1,0 +1,103 @@
+<?php
+
+namespace App\Http\Controllers;
+
+use App\Pelanggaran;
+use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
+use App\User;
+class PelanggaranController extends Controller
+{
+    /**
+     * Display a listing of the resource.
+     *
+     * @return \Illuminate\Http\Response
+     */
+//    public function __construct()
+//    {
+//        $this->middleware('auth', ['except' => ['index','create','show']]);
+//        $this->user = \Auth::user();
+//    }
+    public function index()
+    {
+        $pelanggaran = Pelanggaran::all();
+        $responseData['title'] = 'Cobain';
+        $responseData['result'] = $pelanggaran;
+        return response()->json($responseData);
+    }
+
+    /**
+     * Show the form for creating a new resource.
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function create(Request $request)
+    {
+        $pelanggaran = Pelanggaran::create($request->all());
+        $responseData['title'] = 'Cobain';
+        $responseData['result'] = $pelanggaran;
+        return response()->json($responseData);
+    }
+
+    /**
+     * Store a newly created resource in storage.
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @return \Illuminate\Http\Response
+     */
+    public function store(Request $request)
+    {
+        //
+    }
+
+    /**
+     * Display the specified resource.
+     *
+     * @param  int  $id
+     * @return \Illuminate\Http\Response
+     */
+    public function show()
+    {
+        $no_sim = Auth::user()->no_sim;
+        $data  = Pelanggaran::where('no_sim', '=', $no_sim)->get();
+        $dataPelanggaran['title']='Daftar Pelanggaran';
+        $dataPelanggaran['results']= $data;
+
+        return response()->json($dataPelanggaran);
+
+    }
+
+    /**
+     * Show the form for editing the specified resource.
+     *
+     * @param  int  $id
+     * @return \Illuminate\Http\Response
+     */
+    public function edit($id)
+    {
+        //
+    }
+
+    /**
+     * Update the specified resource in storage.
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @param  int  $id
+     * @return \Illuminate\Http\Response
+     */
+    public function update(Request $request, $id)
+    {
+        //
+    }
+
+    /**
+     * Remove the specified resource from storage.
+     *
+     * @param  int  $id
+     * @return \Illuminate\Http\Response
+     */
+    public function destroy($id)
+    {
+        //
+    }
+}
