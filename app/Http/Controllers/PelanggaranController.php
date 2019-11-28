@@ -58,7 +58,7 @@ class PelanggaranController extends Controller
      */
     public function show()
     {
-        $no_sim = Auth::user()->no_sim;
+        $no_sim = auth()->user()->no_sim;
         $data  = Pelanggaran::where('no_sim', '=', $no_sim)->get();
         $dataPelanggaran['title']='Daftar Pelanggaran';
         $dataPelanggaran['results']= $data;
