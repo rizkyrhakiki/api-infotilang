@@ -21,9 +21,11 @@ class PelanggaranController extends Controller
     public function index()
     {
         $pelanggaran = Pelanggaran::all();
-        $responseData['title'] = 'Daftar Pelanggaran';
-        $responseData['result'] = $pelanggaran;
-        return response()->json($responseData);
+        return response()->json([
+        'title'=>'Daftar Pelanggaran',
+            'result'=>$pelanggaran,
+            'meta'=>
+            ['http_status'=>200]]);
     }
 
     /**
@@ -34,9 +36,11 @@ class PelanggaranController extends Controller
     public function create(Request $request)
     {
         $pelanggaran = Pelanggaran::create($request->all());
-        $responseData['title'] = 'Daftar Pelanggaran';
-        $responseData['result'] = $pelanggaran;
-        return response()->json($responseData);
+        return response()->json([
+            'title'=>'Daftar Pelanggaran',
+            'result'=>$pelanggaran,
+            'meta'=>
+                ['http_status'=>200]]);
     }
 
     /**
@@ -58,12 +62,13 @@ class PelanggaranController extends Controller
      */
     public function show()
     {
-        $no_sim = auth()->user()->no_sim;
+        $no_sim = Auth::user()->no_sim;
         $data  = Pelanggaran::where('no_sim', '=', $no_sim)->get();
-        $dataPelanggaran['title']='Daftar Pelanggaran';
-        $dataPelanggaran['results']= $data;
-
-        return response()->json($dataPelanggaran);
+        return response()->json([
+            'title'=>'Daftar Pelanggaran',
+            'result'=>$data,
+            'meta'=>
+                ['http_status'=>200]]);
 
     }
 
