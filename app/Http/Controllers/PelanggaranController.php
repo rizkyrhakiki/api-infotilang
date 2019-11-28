@@ -21,7 +21,7 @@ class PelanggaranController extends Controller
     public function index()
     {
         $pelanggaran = Pelanggaran::all();
-        $responseData['title'] = 'Cobain';
+        $responseData['title'] = 'Daftar Pelanggaran';
         $responseData['result'] = $pelanggaran;
         return response()->json($responseData);
     }
@@ -34,7 +34,7 @@ class PelanggaranController extends Controller
     public function create(Request $request)
     {
         $pelanggaran = Pelanggaran::create($request->all());
-        $responseData['title'] = 'Cobain';
+        $responseData['title'] = 'Daftar Pelanggaran';
         $responseData['result'] = $pelanggaran;
         return response()->json($responseData);
     }
