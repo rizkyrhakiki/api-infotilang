@@ -15,12 +15,14 @@ class CreateDaftarPelanggaransTable extends Migration
     {
         Schema::create('daftar_pelanggarans', function (Blueprint $table) {
             $table->increments('id');
+            $table->string('nama');
             $table->string('no_sim');
+            $table->string('plat_nomor');
             $table->string('lokasi_tilang');
             $table->string('lokasi_sidang');
+            $table->string('pelanggaran');
             $table->string('nama_polisi');
             $table->date('tanggal_sidang');
-            $table->string('plat_nomor');
             $table->timestamps();
 
         });
