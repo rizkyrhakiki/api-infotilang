@@ -74,11 +74,11 @@ class RegisterController extends Controller
             'password' => Hash::make($data['password']),
             'api_token' => Str::random(60),
         ]);
-//        return response()->json([
-//            'title'=>'Daftar Pelanggaran',
-//            'result'=>$register,
-//            'meta'=>
-//                ['http_status'=>201]]);
-        return response()->json($register);
+        return response()->json([
+            'title'=>'Register Akun',
+            'result'=>$register,
+            'meta'=>
+                ['http_status'=>201]]);
+//        return response()->json($register);
     }
 }
