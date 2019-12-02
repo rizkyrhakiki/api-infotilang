@@ -23,3 +23,4 @@ Route::get('/coba/find/{id}');
 Route::post('/infoTilang/create/', 'PelanggaranController@create');
 Route::get('/infoTilang','PelanggaranController@index');
 Route::get('/infoTilang/pelanggaranSaya', 'PelanggaranController@show')->middleware('auth.basic');
+Route::post('/register', 'Auth\RegisterController@create');
