@@ -60,13 +60,16 @@ class PelanggaranController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show()
+    public function show(Request $accesToken)
     {
         $no_sim = Auth::user()->no_sim;
         $data  = Pelanggaran::where('no_sim', '=', $no_sim)->get();
         return response()->json([
             'title'=>'Daftar Pelanggaran',
             'result'=>$data,
+            'headers' => [
+                'Accept' => 'application/json',
+                'Authorization' =>'Bearer '.$accesToken],
             'meta'=>
                 ['http_status'=>200]]);
 
