@@ -25,6 +25,9 @@ class UserController extends Controller
         return response()->json([
                     'title'=>'Get Me User',
                         'result'=>$me,
+                         'headers' => [
+                                        'Accept' => 'application/json',
+                                        'Authorization' =>'Bearer '.$accesToken],
                         'meta'=>
                         ['http_status'=>200]]);
         }
