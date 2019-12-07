@@ -19,8 +19,8 @@ class UserController extends Controller
         }
 
         public function me(Request $accesToken){
-        $id_user = Auth::user()->id;
-        $me = User::where('id','=', $id_user)->first();
+        $id_user = Auth::user()->no_sim;
+        $me = User::where('no_sim','=', $id_user)->first();
 
         return response()->json([
                     'title'=>'Get Me User',
