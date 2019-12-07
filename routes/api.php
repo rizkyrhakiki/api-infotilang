@@ -26,3 +26,6 @@ Route::post('/infoTilang/create/', 'PelanggaranController@create');
 Route::get('/infoTilang','PelanggaranController@index');
 Route::post('/register', 'Auth\RegisterController@create');
 Route::post('/login', 'Auth\LoginController@login');
+
+Route::get('/users','UserController@index');
+Route::get('/me', 'UserController@me');
