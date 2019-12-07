@@ -16,6 +16,8 @@ use Illuminate\Http\Request;
 Route::group(['middleware' => 'auth:api'], function()
 {
     Route::get('/infoTilang/pelanggaranSaya', 'PelanggaranController@show');
+    Route::get('/me', 'UserController@me');
+
 
 });
 Route::post('/coba', 'CobaController@store');
@@ -28,4 +30,3 @@ Route::post('/register', 'Auth\RegisterController@create');
 Route::post('/login', 'Auth\LoginController@login');
 
 Route::get('/users','UserController@index');
-Route::get('/me', 'UserController@me');
